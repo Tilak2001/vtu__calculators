@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="1.css">
+
+    <script>
+function button(){
+    let m1,m2,m3,m4,m5,m6,m7,m8;
+    m1=parseInt(document.getElementById("marks1").value)
+    m2=parseInt(document.getElementById("marks2").value)
+    m3=parseInt(document.getElementById("marks3").value)
+    m4=parseInt(document.getElementById("marks4").value)
+    m5=parseInt(document.getElementById("marks5").value)
+    m6=parseInt(document.getElementById("marks6").value)
+    m7=parseInt(document.getElementById("marks7").value)
+    m8=parseInt(document.getElementById("marks8").value)
+   percentage=((m1+m2+m3+m4+m5+m6+m7+m8)/800)*100;
+   cgpa=percentage/9.5;
+   (document.getElementById("total").value) =percentage;
+   (document.getElementById("total1").value) =cgpa;
+}
+
+function convert() {
+            // Get the input string from the user
+            let input = document.getElementById("conver");
+            let inputS = input.value;
+
+            // Convert the input string to lowercase
+            let lower = inputS.toLowerCase();
+
+            // Display the lowercase string in the output element
+            let output = document.getElementById("con");
+            output.innerHTML = "Lowercase String: " + lower;
+        }
+
+    </script>
+</head>
+<body>
+    
+        <p>Enter Marks</p>
+        <div class="name">
+        <div>
+        <label for="marks1" class="mark1">dbms</label><br>
+        <input type="text" id="marks1" class="mar1" placeholder="dbms"><br>
+    </div>
+    <div>
+        <label for="marks2" class="mark1">java</label><br>
+        <input type="text" id="marks2" class="mar1" placeholder="java"><br>
+    </div>
+    <div>
+        <label for="marks3" class="mark1">web</label><br>
+        <input type="text"  id="marks3" class="mar1" placeholder="web">
+    </div>
+    <div>
+        <label for="marks4" class="mark1">se/ada</label><br>
+        <input type="text" id="marks4" class="mar1"  placeholder="se/ada">
+    </div>
+    <div>
+        <label for="marks5" class="mark1">elective1</label><br>
+        <input type="text" id="marks5" class="mar1" placeholder="elective1">
+    </div>
+    <div>
+        <label for="marks6" class="mark1">elective2</label><br>
+        <input type="text" id="marks6" class="mar1" placeholder="elective2">
+    </div>
+    <div>
+        <label for="marks7" class="mark1">dbms lab</label><br>
+        <input type="text" id="marks7" class="mar1" placeholder="dbms lab">
+    </div>
+    <div>
+        <label for="marks8" class="mark1">java lab</label><br>
+        <input type="text" id="marks8" class="mar1" placeholder="java lab">
+    </div>
+    <div>
+        <button onclick="button()"  class="submit">submit</button><br>
+        <label for="percentage" class="percent">percentage</label>
+        <input type="text"  id="total" class="sub"  >
+        <label for="sum"  class="percent">gpa</label>
+        <input type="text" id="total1" class="sub" >
+    </div>
+    
+</body>
+</html>
