@@ -3,55 +3,559 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>HESDARC</title>
 
-    <link rel="stylesheet" href="1.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
 
-    <script src="myscripts.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 <body>
-    
-        <p>Enter Marks</p>
-        <div class="name">
-        <div>
-        <label for="marks1" class="mark1">dbms</label><br>
-        <input type="text" id="marks1" class="mar1" placeholder="dbms"><br>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img class="ms-2 mt-1" src="./assets/images/logo.png" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="bi bi-list"></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active ms-1" aria-current="page" href="#"><span class="home">Home</span></a>
+          </li>
+          <li class="nav-item ms-1">
+            <a class="nav-link" href="#about">
+              <span class="line4">About Us</span>
+            </a>
+          </li>
+          <li class="nav-item ms-1">
+            <a class="nav-link" href="#"><span class="line4">Products</span></a>
+          </li>
+          <li class="nav-item ms-1">
+            <a class="nav-link" href="#"><span class="line4">Learning</span></a>
+          </li>
+          <li class="nav-item ms-1">
+            <a class="nav-link" href="#star"><span class="line4">Skill Development</span></a>
+          </li>
+          <li class="nav-item ms-1">
+            <a class="nav-link" href="#board"><span class="line4">Board</span></a>
+          </li>
+          <li class="nav-item ms-1">
+            <a class="nav-link" href="#"><span class="line4">Contact</span></a>
+          </li>
+          <li class="nav-item dropdown ms-1">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="line4">Resources</span>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#"><span class="line4">Designs</span></a></li>
+              <li><a class="dropdown-item" href="#"><span class="line4">Templates</span></a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div>
-        <label for="marks2" class="mark1">java</label><br>
-        <input type="text" id="marks2" class="mar1" placeholder="java"><br>
+  </nav>
+
+  <!-- <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img class="ms-2 mt-1" src="./assets/images/logo.png" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="bi bi-list"></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active ms-1" aria-current="page" href="#"><span class="home">Home</span></a>
+          </li>
+          <li class="nav-item ms-1">
+            <a class="nav-link" href="#about">
+              <span class="line4">About Us</span>
+            </a>
+          </li>
+          <li class="nav-item ms-1">
+            <a class="nav-link" href="#"><span class="line4">Products</span></a>
+          </li>
+          <li class="nav-item ms-1">
+            <a class="nav-link" href="#"><span class="line4">Learning</span></a>
+          </li>
+          <li class="nav-item ms-1">
+            <a class="nav-link" href="#star"><span class="line4">Skill Development</span></a>
+          </li>
+          <li class="nav-item ms-1">
+            <a class="nav-link" href="#board"><span class="line4">Board</span></a>
+          </li>
+          <li class="nav-item ms-1">
+            <a class="nav-link" href="#"><span class="line4">Contact</span></a>
+          </li>
+          <li class="nav-item dropdown ms-1">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="line4">Resources</span>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#"><span class="line4">Designs</span></a></li>
+              <li><a class="dropdown-item" href="#"><span class="line4">Templates</span></a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div>
-        <label for="marks3" class="mark1">web</label><br>
-        <input type="text"  id="marks3" class="mar1" placeholder="web">
+  </nav> -->
+
+
+  <main>
+    <section class="image mt-5 pt-5" id="image">
+      <div class="row g-0 mt-md-4 pt-md-4">
+        <div class="col-lg-5"></div>
+        <div class="col-lg-7 main">
+          <h3 class="main-header pt-3 mt-5 pt-lg-2 pt-md-5 mx-4 px-4">
+            Higher Education Skill <br> Development and Research <br> Center 
+          </h3>
+          <div class="download  mb-5 mx-4 mt-5 pt-md-4 pb-md-5 pt-lg-0 pb-lg-4 pb-3 px-4">
+            <a href="#" class="btn btn-lg video" role="button">Play Video</a>
+            <a href="#" class="btn btn-lg ms-0 ms-md-2 ms-lg-3 know" role="button">Know More</a>
+          </div>
+        </div>
+      </div>
+    </section> 
+<!--     
+    <section class="image" id="image">
+      <div class="row g-0">
+        <div class="col-lg-5"></div>
+        <div class="col-lg-7 main">
+          <h3 class="main-header mt-4 pt-md-5 mx-4 px-4">
+            Higher Education Skill <br> Development and Research <br> Center 
+          </h3>
+          <div class="download  mb-5 mx-4 mt-5 pt-md-4 pb-md-5 pt-lg-0 pb-lg-4 pb-3 px-4">
+            <a href="#" class="btn btn-lg video" role="button">Play Video</a>
+            <a href="#" class="btn btn-lg ms-0 ms-md-2 ms-lg-3 know" role="button">Know More</a>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <section id="about" class="about">
+    <header>
+      <h2 class="pt-5"><span class="line3">About</span> Us</h2>
+    </header>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <img class="img-fluid mx-auto d-block" src="./assets/images/about-us.png" alt="about">
+          <div class="text mx-lg-4">
+            <p class="mt-4">
+              HESDAR Center is a higher education start-up functioning since, 5 September 2017 with a focus for faculty, students and others to provide teaching & learning, skill development, action research and creating modern education workspace, leveraging latest technology and expertise of the board members. it emphasizes on attitude and competencies' development of faculty and not just knowledge up-graduation.     
+            </p> 
+            <p class="mt-4">
+              Major focus will be on Evidence based learning outcomes, Bloom's taxonomy, PBL, Curriculum, Assesments and hostilic Feedback system development. 
+            </p> 
+            <p class="mt-4">
+              HESDARC, Mysuru has its state of the art Skill Development Center at Hebbal industrial area with about 10,000 sft. of area for training and related activites.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div>
-        <label for="marks4" class="mark1">se/ada</label><br>
-        <input type="text" id="marks4" class="mar1"  placeholder="se/ada">
+    </section>
+
+    <section id="carouselExampleIndicators" class="carousel slide mt-5">
+      <div class="carousel-indicators blue pb-5 mb-5">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active text-wrapper">
+          <div class="container-fluid px-0">
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-center text1">
+                      <header>
+                        <h2 class="vision-h2 pt-lg-5 mt-5"><span class="vis">Vision</span> 2025</h2>
+                      </header>
+                      <p class="text-center mx-2 mx-lg-5 pb-5 mb-5 pt-lg-2"> 
+                        To be a leading consulting center for faculty training, education based research, skill development, digital transformation and higher education management in India with international quality 
+                      </p> 
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item text-wrapper">
+          <div class="container-fluid px-0">
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-center text1">
+                      <header>
+                        <h2 class="vision-h2 pt-lg-5 mt-5">
+                          <span class="vis">VISION</span> 2025
+                        </h2>
+                      </header>
+                      <p class="text-center mx-2 mx-lg-5 pb-5 mb-5 pt-lg-2"> 
+                        To be a leading consulting center for faculty training, education based research, skill development, digital transformation and higher education management in India with international quality 
+                      </p> 
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="basic mt-5 pb-4" id="board">
+      <header>
+        <h2 class="pt-sm-0"><span class="line">Board</span> Objectives of HESDARC</h2>
+      </header>
+      <div class="container-fluid">
+        <div class="row mt-4 gy-4">
+          <div class="col-12 col-lg-4 ps-lg-4">
+            <div class="basic-box d-flex justify-content-space-between">
+              <img class="img-fluid" src="./assets/images/develop.png" alt="develop">
+              <p class="ms-3"><b>Develop</b> and implement scientific and internationally acceptable training modules, Institutional research and effectiveness strategies and processes.</p>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4 ">
+            <div class="basic-box d-flex justify-content-space-between">
+              <img class="img-fluid" src="./assets/images/assist.png" alt="develop">
+              <p class="ms-3"><b>Assist</b> Universities and Institutes to develop, implement, evalute, monitor and continuously modify strategic planning, goals, processes & evaluation indicators.</p>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4 ps-lg-0">
+            <div class="basic-box d-flex justify-content-space-between">
+              <img class="img-fluid" src="./assets/images/support.png" alt="develop">
+              <p class="ms-3"><b>Support</b> institutes to critically evaluate and implement international educational and training standards and processes.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-2 gy-4">
+          <div class="col-12 col-lg-4 ps-lg-4">
+            <div class="basic-box d-flex justify-content-space-between">
+              <img class="img-fluid" src="./assets/images/contact.png" alt="develop">
+              <p class="ms-3"><b>Conduct</b> need based training programs to selected students, faculty and administration in the area of self & institutional development for recognition & respect.</p>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4">
+            <div class="basic-box d-flex justify-content-space-between">
+              <img class="img-fluid" src="./assets/images/focus.png" alt="develop">
+              <p class="ms-3"><b>Focus</b> on evidence based outcomes, PBL, Assesments, Skill development and feedback system.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="star" id="star">
+      <div class="container-fluid star-wrap">
+        <div class="row ms-lg-5 ms-3 px-3 g-0">
+          <div class="col-lg-6  px-0 mx-0">
+             <div class="row g-0">
+              <div class="col-lg-3 col-md-3 col-6">
+                <img src="./assets/images/communicator.png" alt="star">
+              </div>
+              <div class="col-lg-3 col-md-3 col-6">
+                <img src="./assets/images/life.png" alt="star">
+              </div>
+              <div class="col-lg-3 col-md-3 mt-3 mt-lg-0 mt-md-0 col-6">
+                <img src="./assets/images/care.png" alt="star">
+              </div>
+              <div class="col-lg-3 col-md-3 mt-3 mt-lg-0 mt-md-0 col-6">
+                <img src="./assets/images/research.png" alt="star">
+              </div>
+             </div>
+  
+             <div class="row pt-3 g-0">
+              <div class="col-lg-3 col-md-3 col-6">
+                <img src="./assets/images/leader.png" alt="star">
+              </div>
+              <div class="col-lg-3 col-md-3 col-6">
+                <img src="./assets/images/teacher.png" alt="star">
+              </div>
+              <div class="col-lg-3 col-md-3 col-6 mt-3 mt-lg-0 mt-md-0">
+                <img src="./assets/images/problem.png" alt="star">
+              </div>
+             </div>
+          </div>
+  
+          <div class="col-lg-6 ps-lg-5 ps-2">
+            <header>
+              <h2 class="ms-lg-5 pt-5">Seven Star <br> Professional & Value <br> <span class="line2">Based Wo</span>rker</h2>
+            </header>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="framework">
+      <header>
+        <h2 class="ms-lg-5 ms-4 ps-lg-4 pt-5"><span class="line">HESDARC</span> Framework Strategic intervention & consulting services</h2>
+      </header>
+      <div class="container-fluid">
+        <div class="row mt-5 ms-2">
+          <div class="col-lg-4 order-1">
+            <img class="img-fluid" src="./assets/images/blub.png" alt="">
+          </div>
+          <div class="col-lg-8 order-2">
+            <ul>
+              <li>Digital intervention & transformation of college - consulating services</li>
+              <li>Mentoring for Accredition, Certification & Succession planning</li>
+              <li>College Management System</li>
+              <li>Marketing strategy & digital consultancy</li>
+              <li>Problems / challenges identification & intervention</li>
+            </ul>
+            <div class="download ms-2 ms-lg-2 mt-5 mb-4">
+              <a href="#" class="btn btn-lg cnt" role="button">Contact Us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="Certificate pb-4">
+      <header>
+        <h2 class="pt-5"><span class="line">Certifi</span>cation</h2>
+      </header>
+
+      <div class="container">
+        <div class="row g-0 pt-4">
+          <div class="col-lg-3 col-md-6 ps-md-5 ps-lg-0 px-lg-2 ps-4">
+            <div class="box d-flex align-items-center justify-content-center">
+              <p class="box1">Certification</p>
+            </div>
+            <p class="ms-5 ps-4 ps-md-4 ps-lg-0 mt-2  mt-lg-4">Certification 1</p>
+          </div>
+          <div class="col-lg-3 col-md-6 ps-md-5 ps-lg-0 px-lg-2 ps-4">
+            <div class="box d-flex align-items-center justify-content-center">
+              <p class="box1">Certification</p>
+            </div>
+            <p class="ms-5 ps-5 ps-md-4 ps-lg-0 mt-2  mt-lg-4">Certification 2</p>
+          </div>
+          <div class="col-lg-3 col-md-6 ps-md-5 ps-lg-0 px-lg-2 ps-4">
+            <div class="box d-flex align-items-center justify-content-center">
+              <p class="box1">Certification</p>
+            </div>
+            <p class="ms-5 ps-5 ps-md-4 ps-lg-0 mt-2  mt-lg-4">Certification 3</p>
+          </div>
+          <div class="col-lg-3 col-md-6 ps-md-5 ps-lg-0 px-lg-2 ps-4">
+            <div class="box d-flex align-items-center justify-content-center">
+              <p class="box1">Certification</p>
+            </div>
+            <p class="ms-5 ps-5 ps-md-4 ps-lg-0  mt-2 mt-lg-4">Certification 4</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+ 
+    <section  class="team mb-5">
+    <header>
+      <h2 class="pt-5"><span class="line">Team</span> - HESDARC</h2>
+    </header>
+    <div id="carouselExampleIndicators1" class="carousel slide">
+      <div class="carousel-indicators mb-5">
+        <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      </div>
+      <div class="carousel-inner  container">
+        <div class="carousel-item active team-wrapper pb-5 mb-5">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 mt-lg-0 mt-4">
+              <div class="team-box">
+                <img class="img-fluid" src="./assets/images/team.png" alt="team">
+                <div class="team-content">
+                  <h6>Dr. B.G. Nagavi</h6>
+                  <p class="des">Founder CEO & Senior Consultant - Mysuru</p>
+                  <p class="desc pt-1">Dr. Nagavi is the founder CEO & Senior Consultant of Higher education Skill Development and Research (HESDAR) Center, Mysuru, Karnataka Since Sept. 2017.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mt-lg-0 mt-4">
+              <div class="team-box">
+                <img class="img-fluid" src="./assets/images/team.png" alt="team">
+                <div class="team-content">
+                  <h6>Mr. Kalpesh V.Mehta</h6>
+                  <p class="des">Senior Consultant - Mysuru</p>
+                  <p class="desc">Kalpesh provides leadership,team building skills, inspiring vision & passion for customer satisfaction and is responsible for overall company performance & success.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mt-lg-0 mt-4">
+              <div class="team-box">
+                <img class="img-fluid" src="./assets/images/team.png" alt="team">
+                <div class="team-content">
+                  <h6>Dr. Chandrashekar</h6>
+                  <p class="des">University of Findlay - USA</p>
+                  <p class="desc">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to  demonstrate the visual form of a  document or a typeface without relying on meaningful content</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mt-lg-0 mt-4">
+              <div class="team-box">
+                <img class="img-fluid" src="./assets/images/team.png" alt="team">
+                <div class="team-content">
+                  <h6>Dr. S.B. Bhise</h6>
+                  <p class="des">Senior Consultant - Pune (Maharastra)</p>
+                  <p class="desc">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to  demonstrate the visual form of a  document or a typeface without relying on meaningful content</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item team-wrapper pb-5 mb-5">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 mt-lg-0 mt-4">
+              <div class="team-box">
+                <img class="img-fluid" src="./assets/images/team.png" alt="team">
+                <div class="team-content">
+                  <h6>Dr. B.G. Nagavi</h6>
+                  <p class="des">Founder CEO & Senior Consultant - Mysuru</p>
+                  <p class="desc pt-1">Dr. Nagavi is the founder CEO & Senior Consultant of Higher education Skill Development and Research (HESDAR) Center, Mysuru, Karnataka Since Sept. 2017.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mt-lg-0 mt-4">
+              <div class="team-box">
+                <img class="img-fluid" src="./assets/images/team.png" alt="team">
+                <div class="team-content">
+                  <h6>Mr. Kalpesh V.Mehta</h6>
+                  <p class="des">Senior Consultant - Mysuru</p>
+                  <p class="desc">Kalpesh provides leadership,team building skills, inspiring vision & passion for customer satisfaction and is responsible for overall company performance & success.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mt-lg-0 mt-4">
+              <div class="team-box">
+                <img class="img-fluid" src="./assets/images/team.png" alt="team">
+                <div class="team-content">
+                  <h6>Dr. Chandrashekar</h6>
+                  <p class="des">University of Findlay - USA</p>
+                  <p class="desc">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to  demonstrate the visual form of a  document or a typeface without relying on meaningful content</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mt-lg-0 mt-4">
+              <div class="team-box">
+                <img class="img-fluid" src="./assets/images/team.png" alt="team">
+                <div class="team-content">
+                  <h6>Dr. S.B. Bhise</h6>
+                  <p class="des">Senior Consultant - Pune (Maharastra)</p>
+                  <p class="desc">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to  demonstrate the visual form of a  document or a typeface without relying on meaningful content</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div>
-        <label for="marks5" class="mark1">elective1</label><br>
-        <input type="text" id="marks5" class="mar1" placeholder="elective1">
-    </div>
-    <div>
-        <label for="marks6" class="mark1">elective2</label><br>
-        <input type="text" id="marks6" class="mar1" placeholder="elective2">
-    </div>
-    <div>
-        <label for="marks7" class="mark1">dbms lab</label><br>
-        <input type="text" id="marks7" class="mar1" placeholder="dbms lab">
-    </div>
-    <div>
-        <label for="marks8" class="mark1">java lab</label><br>
-        <input type="text" id="marks8" class="mar1" placeholder="java lab">
-    </div>
-    <div>
-        <button onclick="button()"  class="submit">submit</button><br>
-        <label for="percentage" class="percent">percentage</label>
-        <input type="text"  id="total" class="sub"  >
-        <label for="sum"  class="percent">gpa</label>
-        <input type="text" id="total1" class="sub" >
-    </div>
-    
+   </section>
+
+    <section class="outcome">
+      <header>
+        <h2 class="pt-5"><span class="line">Outco</span>mes Expected</h2>
+      </header> 
+
+      <div class="container">
+        <div class="row mt-4 pb-5 ms-3 ms-lg-0 ms-md-0">
+          <div class="col-lg-3 col-md-6">
+            <img class="ms-2" src="./assets/images/students.png" alt="outcome">
+            <p class="mt-2 ms-2">Students</p>
+            <ul>
+              <li>Gainful employment</li>
+              <li>Skill development</li>
+              <li>Empowerment</li>
+              <li>Entereneurship</li>
+            </ul>
+          </div>
+          <div class="col-lg-5 col-md-6 ps-lg-5">
+            <img class="ms-2" src="./assets/images/admin.png" alt="outcome">
+            <p class="mt-2 ms-2">Administrations</p>
+            <ul>
+              <li>Institution building</li>
+              <li>Electronic Management Systems</li>
+              <li>Good documentation & reporting </li>
+              <li>International standards in HE</li>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-md-6 ps-lg-5">
+            <img class="ms-2" src="./assets/images/faculty.png" alt="outcome">
+            <p class="mt-2 ms-2">Faculty</p>
+            <ul>
+              <li>Skill development</li>
+              <li>Capacity building</li>
+              <li>Empowerment</li>
+              <li>In par with international</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+    <footer class="footer">
+      <div class="container top pt-5">
+          <div class="row gy-4 pt-5">
+              <div class="col-lg-3 col-md-6 footer-about">
+                  <img class="img-fluid pt-lg-0 mt-lg-0 pt-md-5 mt-md-4 ms-4 mx-lg-auto d-lg-block" src="./assets/images/logo2.png" alt="logo">
+                  <p class=" ms-4 ms-lg-0 mt-3">be different, be ahead & be happy</p>
+              </div>
+              <div class="col-lg-2 col-md-6 footer-links">
+                  <h4 class="ps-lg-5 ps-4">Quick Links</h4>
+                  <ul>
+                      <li><a class="ps-lg-3" href="#">Home</a></li>
+                      <li><a class="ps-lg-3" href="#">About us</a></li>
+                      <li><a class="ps-lg-3" href="#">Product</a></li>
+                      <li><a class="ps-lg-3" href="#">Learning</a></li>
+                      <li><a class="ps-lg-3" href="#">Board</a></li>
+                      <li><a class="ps-lg-3" href="#">Contact Us</a></li>
+                  </ul>
+              </div>
+              <div class="col-lg-4 col-md-6 ps-lg-5 footer-links">
+                  <h4 class="ms-lg-5 ps-lg-0 ps-4 ms-md-0">HESDARC Center</h4>
+                  <div class="d-flex">
+                    <img class="ms-4 ps-1 ms-lg-0 ms-md-3" src="./assets/images/home.png" alt="home">
+                    <p class="ms-2 mt-1">No 8/8,First Floor,JSS Layout, Dr Rajkumar Road,Shakti Nagar, <br> Mysore -570016,
+                      <br>Karnataka, India
+                    </p>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <img class="ms-4 ps-1 ms-lg-0 ms-md-3" src="./assets/images/call.png" alt="phone">
+                    <p class="ms-2 mt-3">+91 9982728819</p>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <img class="ms-4 ps-1 ms-lg-0 ms-md-3" src="./assets/images/email.png" alt="phone">
+                    <p class="ms-2 mt-3">www.hesdarcenter.com</p>
+                  </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-12 ps-3 ps-md-4 pb-3 footer-contact">
+                  <h4 class="ms-3">Contact with Us</h4>
+                  <a class="ms-2" href="#"><img src="./assets/images/fb.png" alt="contact"></a>
+                  <a href="#"><img src="./assets/images/in.png" alt="contact"></a>
+                  <a href="#"><img src="./assets/images/g+.png" alt="contact"></a>
+                  <a href="#"><img src="./assets/images/tw.png" alt="contact"></a>
+              </div>
+          </div>
+      </div>
+
+      <div class="container-fluid bottom">
+        <div class="row">
+          <div class="col-lg-12">
+            <p class="pt-3 text-center"> Copyright 2021. All Rights Reserved</p>
+          </div>
+        </div>
+      </div>
+  </footer>
+
+   
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+  <script src="./assets/js/script.js"></script>
 </body>
 </html>
