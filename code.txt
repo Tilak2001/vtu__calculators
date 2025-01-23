@@ -228,3 +228,17 @@ class FilterArrayExample
         Console.WriteLine("[" + string.Join(", ", filteredArray) + "]");
     }
 }
+
+
+
+for (int i = 0; i < arr.Length; i++)
+{
+    if (i < arr.Length - 1) // If it's not the last element
+    {
+        Console.Write(arr[i] + " ");
+    }
+    else
+    {
+        Console.WriteLine(arr[i]);
+    }
+}
