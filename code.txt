@@ -1,141 +1,149 @@
 ﻿
-
-
-
-
 using System;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Press 1 for Addition:");
-        Console.WriteLine("Press 2 for Subtraction:");
-        Console.WriteLine("Press 3 for Multiplication:");
-        Console.WriteLine("Press 4 for Division:");
+        int choice = 0;
 
-        int choice = Convert.ToInt32(Console.ReadLine());
-
-        switch (choice)
+        // Loop until the user chooses to exit (option 5)
+        while (choice != 5)
         {
-            case 1:
-                {
-                    Console.WriteLine("Press 1 for Addition of 2 numbers:");
-                    Console.WriteLine("Press 2 for Addition of 3 numbers:");
-                    int add = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Press 1 for Addition:");
+            Console.WriteLine("Press 2 for Subtraction:");
+            Console.WriteLine("Press 3 for Multiplication:");
+            Console.WriteLine("Press 4 for Division:");
+            Console.WriteLine("Press 5 to Exit:");
 
-                    switch (add)
+            choice = Convert.ToInt32(Console.ReadLine());
+
+            switch (choice)
+            {
+                case 1:
                     {
-                        case 1:
-                            {
-                                Console.WriteLine("Enter 2 Numbers for Addition:");
-                                int a = Convert.ToInt32(Console.ReadLine());
-                                int b = Convert.ToInt32(Console.ReadLine());
-                                Console.WriteLine($"{a} + {b} = {a + b}");
-                            }
-                            break;
-                        case 2:
-                            {
-                                Console.WriteLine("Enter 3 Numbers for Addition:");
-                                int a = Convert.ToInt32(Console.ReadLine());
-                                int b = Convert.ToInt32(Console.ReadLine());
-                                int c = Convert.ToInt32(Console.ReadLine());
-                                Console.WriteLine($"{a} + {b} + {c} = {a + b + c}");
-                            }
-                            break;
-                        default:
-                            Console.WriteLine("Invalid Number!!");
-                            break;
+                        Console.WriteLine("Press 1 for Addition of 2 numbers:");
+                        Console.WriteLine("Press 2 for Addition of 3 numbers:");
+                        int add = Convert.ToInt32(Console.ReadLine());
+
+                        switch (add)
+                        {
+                            case 1:
+                                {
+                                    Console.WriteLine("Enter 2 Numbers for Addition:");
+                                    int a = Convert.ToInt32(Console.ReadLine());
+                                    int b = Convert.ToInt32(Console.ReadLine());
+                                    Console.WriteLine($"{a} + {b} = {a + b}");
+                                }
+                                break;
+                            case 2:
+                                {
+                                    Console.WriteLine("Enter 3 Numbers for Addition:");
+                                    int a = Convert.ToInt32(Console.ReadLine());
+                                    int b = Convert.ToInt32(Console.ReadLine());
+                                    int c = Convert.ToInt32(Console.ReadLine());
+                                    Console.WriteLine($"{a} + {b} + {c} = {a + b + c}");
+                                }
+                                break;
+                            default:
+                                Console.WriteLine("Invalid Number!!");
+                                break;
+                        }
                     }
-                }
-                break;
+                    break;
 
-            case 2:
-                {
-                    Console.WriteLine("Press 1 for Subtraction of 2 numbers:");
-                    Console.WriteLine("Press 2 for Subtraction of 3 numbers:");
-                    int sub = Convert.ToInt32(Console.ReadLine());
-
-                    switch (sub)
+                case 2:
                     {
-                        case 1:
-                            {
-                                Console.WriteLine("Enter 2 numbers for Subtraction:");
-                                int a = Convert.ToInt32(Console.ReadLine());
-                                int b = Convert.ToInt32(Console.ReadLine());
-                                Console.WriteLine($"{a} - {b} = {a - b}");
-                            }
-                            break;
-                        case 2:
-                            {
-                                Console.WriteLine("Enter 3 numbers for Subtraction:");
-                                int a = Convert.ToInt32(Console.ReadLine());
-                                int b = Convert.ToInt32(Console.ReadLine());
-                                int c = Convert.ToInt32(Console.ReadLine());
-                                Console.WriteLine($"{a} - {b} - {c} = {a - b - c}");
-                            }
-                            break;
-                        default:
-                            Console.WriteLine("Invalid Number!!");
-                            break;
+                        Console.WriteLine("Press 1 for Subtraction of 2 numbers:");
+                        Console.WriteLine("Press 2 for Subtraction of 3 numbers:");
+                        int sub = Convert.ToInt32(Console.ReadLine());
+
+                        switch (sub)
+                        {
+                            case 1:
+                                {
+                                    Console.WriteLine("Enter 2 numbers for Subtraction:");
+                                    int a = Convert.ToInt32(Console.ReadLine());
+                                    int b = Convert.ToInt32(Console.ReadLine());
+                                    Console.WriteLine($"{a} - {b} = {a - b}");
+                                }
+                                break;
+                            case 2:
+                                {
+                                    Console.WriteLine("Enter 3 numbers for Subtraction:");
+                                    int a = Convert.ToInt32(Console.ReadLine());
+                                    int b = Convert.ToInt32(Console.ReadLine());
+                                    int c = Convert.ToInt32(Console.ReadLine());
+                                    Console.WriteLine($"{a} - {b} - {c} = {a - b - c}");
+                                }
+                                break;
+                            default:
+                                Console.WriteLine("Invalid Number!!");
+                                break;
+                        }
                     }
-                }
-                break;
+                    break;
 
-            case 3:
-                {
-                    Console.WriteLine("Press 1 for Multiplication of 2 numbers:");
-                    Console.WriteLine("Press 2 for Multiplication of 3 numbers:");
-                    int mul = Convert.ToInt32(Console.ReadLine());
-
-                    switch (mul)
+                case 3:
                     {
-                        case 1:
-                            {
-                                Console.WriteLine("Enter 2 numbers for Multiplication:");
-                                int a = Convert.ToInt32(Console.ReadLine());
-                                int b = Convert.ToInt32(Console.ReadLine());
-                                Console.WriteLine($"{a} * {b} = {a * b}");
-                            }
-                            break;
-                        case 2:
-                            {
-                                Console.WriteLine("Enter 3 numbers for Multiplication:");
-                                int a = Convert.ToInt32(Console.ReadLine());
-                                int b = Convert.ToInt32(Console.ReadLine());
-                                int c = Convert.ToInt32(Console.ReadLine());
-                                Console.WriteLine($"{a} * {b} * {c} = {a * b * c}");
-                            }
-                            break;
-                        default:
-                            Console.WriteLine("Invalid Number!!");
-                            break;
-                    }
-                }
-                break;
+                        Console.WriteLine("Press 1 for Multiplication of 2 numbers:");
+                        Console.WriteLine("Press 2 for Multiplication of 3 numbers:");
+                        int mul = Convert.ToInt32(Console.ReadLine());
 
-            case 4:
-                {
-                    Console.WriteLine("Enter 2 Numbers for Division:");
-                    int a = Convert.ToInt32(Console.ReadLine());
-                    int b = Convert.ToInt32(Console.ReadLine());
-                    if (b != 0)
-                    {
-                        Console.WriteLine($"{a} / {b} = {(double)a / b}");
+                        switch (mul)
+                        {
+                            case 1:
+                                {
+                                    Console.WriteLine("Enter 2 numbers for Multiplication:");
+                                    int a = Convert.ToInt32(Console.ReadLine());
+                                    int b = Convert.ToInt32(Console.ReadLine());
+                                    Console.WriteLine($"{a} * {b} = {a * b}");
+                                }
+                                break;
+                            case 2:
+                                {
+                                    Console.WriteLine("Enter 3 numbers for Multiplication:");
+                                    int a = Convert.ToInt32(Console.ReadLine());
+                                    int b = Convert.ToInt32(Console.ReadLine());
+                                    int c = Convert.ToInt32(Console.ReadLine());
+                                    Console.WriteLine($"{a} * {b} * {c} = {a * b * c}");
+                                }
+                                break;
+                            default:
+                                Console.WriteLine("Invalid Number!!");
+                                break;
+                        }
                     }
-                    else
-                    {
-                        Console.WriteLine("Division by zero is not allowed!");
-                    }
-                }
-                break;
+                    break;
 
-            default:
-                Console.WriteLine("Invalid Number!!");
-                break;
+                case 4:
+                    {
+                        Console.WriteLine("Enter 2 Numbers for Division:");
+                        int a = Convert.ToInt32(Console.ReadLine());
+                        int b = Convert.ToInt32(Console.ReadLine());
+                        if (b != 0)
+                        {
+                            Console.WriteLine($"{a} / {b} = {(double)a / b}");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Division by zero is not allowed!");
+                        }
+                    }
+                    break;
+
+                case 5:
+                    Console.WriteLine("Exiting the program...");
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid Number!!");
+                    break;
+            }
         }
     }
 }
+
 
 
 using System;
@@ -166,8 +174,8 @@ namespace LargestNum
             int[] maximumValue = new int[row];
             for (int i = 0; i < row; i++)
             {
-                int max = ;
-                for (int j = 0; j < col; j++)
+                int max = arr[i, 0]; 
+                for (int j = 1; j < col; j++) 
                 {
                     if (arr[i, j] > max)
                     {
@@ -176,9 +184,47 @@ namespace LargestNum
                 }
                 maximumValue[i] = max;
             }
+
             Console.WriteLine("Maximum Values : " + String.Join(" , ", maximumValue));
         }
     }
 }
 
 
+using System;
+using System.Collections.Generic;
+
+class FilterArrayExample
+{
+    static int[] FilterIntegers(string[] inputArray)
+    {
+        List<int> integerList = new List<int>();
+        foreach (var item in inputArray)
+        {
+            if (int.TryParse(item, out int number))
+            {
+                integerList.Add(number);
+            }
+        }
+        return integerList.ToArray();
+    }
+
+    static void Main()
+    {
+        Console.WriteLine("Enter the number of elements:");
+        int n = int.Parse(Console.ReadLine());
+
+        string[] inputArray = new string[n];
+
+        Console.WriteLine("Enter the elements :");
+
+        for (int i = 0; i < n; i++)
+        {
+            inputArray[i] = Console.ReadLine();
+        }
+        int[] filteredArray = FilterIntegers(inputArray);
+
+        Console.WriteLine("\nFiltered array of integers:");
+        Console.WriteLine("[" + string.Join(", ", filteredArray) + "]");
+    }
+}
