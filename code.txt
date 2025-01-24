@@ -1,0 +1,262 @@
+using System;
+
+namespace CountRecord
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            var totalCount = 0;
+            int[] arr = { 10, 5, 5, 2, 8, 4 };
+
+            // Manually count elements in the array
+            foreach (var item in arr)
+            {
+                totalCount++;
+            }
+
+            Console.WriteLine(totalCount);
+        }
+    }
+}
+
+
+using System;
+using System.Text;
+
+namespace ReverseString
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter a String : ");
+            string input = Console.ReadLine();
+
+            // Replace multiple characters using custom logic
+            string replaceString = ReplaceMultiple(input);
+
+            // Initialize an empty string to store the reversed string
+            string Reverse = "";
+
+            // Reverse the modified string
+            for (int i = 0; i < replaceString.Length; i++)
+            {
+                Reverse = replaceString[i] + Reverse;
+            }
+
+            // Print the original and modified string lengths
+            Console.WriteLine("Original Length: " + input.Length);
+            Console.WriteLine("Modified Length: " + replaceString.Length);
+
+            // Print the reversed string
+            Console.WriteLine("Reversed String: " + Reverse);
+        }
+
+        // Custom method to replace multiple characters without using Replace() or Dictionary
+        static string ReplaceMultiple(string input)
+        {
+            StringBuilder result = new StringBuilder();
+
+            foreach (char c in input)
+            {
+                switch (c)
+                {
+                    case 'o':
+                        result.Append('0');
+                        break;
+                    case 'u':
+                        result.Append('1');
+                        break;
+                    case 'a':
+                        result.Append('@');
+                        break;
+                    default:
+                        result.Append(c);
+                        break;
+                }
+            }
+
+            return result.ToString();
+        }
+    }
+}
+
+using System;
+
+namespace ReverseString
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter a String : ");
+            string input = Console.ReadLine();
+
+            // Replace multiple characters in the string
+            string replaceString = input.Replace('o', '0')
+                                        .Replace('u', '1')
+                                        .Replace('a', '@');
+
+            // Initialize an empty string to store the reversed string
+            string Reverse = "";
+
+            // Reverse the modified string
+            for (int i = 0; i < replaceString.Length; i++)
+            {
+                Reverse = replaceString[i] + Reverse;
+            }
+
+            // Print the original and modified string lengths
+            Console.WriteLine("Original Length: " + input.Length);
+            Console.WriteLine("Modified Length: " + replaceString.Length);
+
+            // Print the reversed string
+            Console.WriteLine("Reversed String: " + Reverse);
+        }
+    }
+}
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter a number: ");
+        string input = Console.ReadLine();
+        
+        // Validate the input and convert it to an integer
+        if (IsValidInteger(input, out int number))
+        {
+            Console.Write("Enter Sorting order (asc/desc): ");
+            string order = Console.ReadLine().ToLower();
+            string result = SortDigits(number, order);
+            Console.WriteLine($"Sorted result: {result}");
+        }
+        else
+        {
+            Console.WriteLine("Invalid input!!");
+        }
+    }
+
+    // Simple method to check if the input is a valid integer
+    static bool IsValidInteger(string input, out int number)
+    {
+        number = 0;
+        int start = 0;
+        if (input[0] == '-')
+        {
+            start = 1;  // Start from index 1 for negative numbers
+        }
+
+        // Check if all characters are digits
+        for (int i = start; i < input.Length; i++)
+        {
+            if (input[i] < '0' || input[i] > '9')
+            {
+                return false; // Invalid character found
+            }
+        }
+
+        // Convert string to integer manually
+        for (int i = start; i < input.Length; i++)
+        {
+            number = number * 10 + (input[i] - '0');
+        }
+
+        if (input[0] == '-') 
+        {
+            number = -number; // Handle negative numbers
+        }
+
+        return true;
+    }
+
+    // Extract digits from the number
+    static int[] ExtractDigits(int number)
+    {
+        int absNumber = (number < 0) ? -number : number; // Handle negative numbers
+        int count = 0;
+        
+        // Count the number of digits
+        int temp = absNumber;
+        while (temp > 0)
+        {
+            temp /= 10;
+            count++;
+        }
+
+        // Extract digits into an array
+        int[] digits = new int[count];
+        int index = count - 1;
+
+        // Store the digits in reverse order (from right to left)
+        while (absNumber > 0)
+        {
+            digits[index] = absNumber % 10;
+            absNumber /= 10;
+            index--;
+        }
+
+        return digits;
+    }
+
+    // Simple method to sort the digits (Bubble Sort)
+    static void SortDigitsManually(int[] digits, bool ascending)
+    {
+        int length = digits.Length;
+
+        // Bubble sort for sorting digits
+        for (int i = 0; i < length - 1; i++)
+        {
+            for (int j = 0; j < length - 1 - i; j++)
+            {
+                // Swap if digits are out of order
+                if ((ascending && digits[j] > digits[j + 1]) || (!ascending && digits[j] < digits[j + 1]))
+                {
+                    int temp = digits[j];
+                    digits[j] = digits[j + 1];
+                    digits[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+    // Convert the digits array back to a string
+    static string ConvertDigitsToString(int[] digits)
+    {
+        string result = "";
+        for (int i = 0; i < digits.Length; i++)
+        {
+            result += (char)(digits[i] + '0'); // Convert digit to character
+        }
+        return result;
+    }
+
+    // Sort the digits based on the order (asc or desc)
+    static string SortDigits(int number, string order)
+    {
+        // Extract digits from the number
+        int[] digits = ExtractDigits(number);
+
+        // Sort the digits
+        if (order == "asc")
+        {
+            SortDigitsManually(digits, true); // Ascending order
+        }
+        else if (order == "desc")
+        {
+            SortDigitsManually(digits, false); // Descending order
+        }
+        else
+        {
+            return "Invalid order";
+        }
+
+        // Convert sorted digits back to a string
+        return ConvertDigitsToString(digits);
+    }
+}
