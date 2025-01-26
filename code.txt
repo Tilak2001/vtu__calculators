@@ -119,6 +119,7 @@ namespace ReverseString
 
 
 
+
 using System;
 
 class Program
@@ -127,9 +128,8 @@ class Program
     {
         Console.Write("Enter a number: ");
         string input = Console.ReadLine();
-        
-        // Validate the input and convert it to an integer
-        if (IsValidInteger(input, out int number))
+
+        if (int.TryParse(input, out int number))
         {
             Console.Write("Enter Sorting order (asc/desc): ");
             string order = Console.ReadLine().ToLower();
@@ -142,121 +142,34 @@ class Program
         }
     }
 
-    // Simple method to check if the input is a valid integer
-    static bool IsValidInteger(string input, out int number)
+    static string SortDigits(int number, string order)
     {
-        number = 0;
-        int start = 0;
-        if (input[0] == '-')
+        string numberString = Math.Abs(number).ToString();
+
+        char[] digits = new char[numberString.Length];
+        for (int i = 0; i < numberString.Length; i++)
         {
-            start = 1;  // Start from index 1 for negative numbers
+            digits[i] = numberString[i];
         }
 
-        // Check if all characters are digits
-        for (int i = start; i < input.Length; i++)
+        for (int i = 0; i < digits.Length; i++)
         {
-            if (input[i] < '0' || input[i] > '9')
+            for (int j = i + 1; j < digits.Length; j++)
             {
-                return false; // Invalid character found
-            }
-        }
-
-        // Convert string to integer manually
-        for (int i = start; i < input.Length; i++)
-        {
-            number = number * 10 + (input[i] - '0');
-        }
-
-        if (input[0] == '-') 
-        {
-            number = -number; // Handle negative numbers
-        }
-
-        return true;
-    }
-
-    // Extract digits from the number
-    static int[] ExtractDigits(int number)
-    {
-        int absNumber = (number < 0) ? -number : number; // Handle negative numbers
-        int count = 0;
-        
-        // Count the number of digits
-        int temp = absNumber;
-        while (temp > 0)
-        {
-            temp /= 10;
-            count++;
-        }
-
-        // Extract digits into an array
-        int[] digits = new int[count];
-        int index = count - 1;
-
-        // Store the digits in reverse order (from right to left)
-        while (absNumber > 0)
-        {
-            digits[index] = absNumber % 10;
-            absNumber /= 10;
-            index--;
-        }
-
-        return digits;
-    }
-
-    // Simple method to sort the digits (Bubble Sort)
-    static void SortDigitsManually(int[] digits, bool ascending)
-    {
-        int length = digits.Length;
-
-        // Bubble sort for sorting digits
-        for (int i = 0; i < length - 1; i++)
-        {
-            for (int j = 0; j < length - 1 - i; j++)
-            {
-                // Swap if digits are out of order
-                if ((ascending && digits[j] > digits[j + 1]) || (!ascending && digits[j] < digits[j + 1]))
+                if (order == "asc" && digits[i] > digits[j])
                 {
-                    int temp = digits[j];
-                    digits[j] = digits[j + 1];
-                    digits[j + 1] = temp;
+                    char temp = digits[i];
+                    digits[i] = digits[j];
+                    digits[j] = temp;
+                }
+                else if (order == "desc" && digits[i] < digits[j])
+                {
+                    char temp = digits[i];
+                    digits[i] = digits[j];
+                    digits[j] = temp;
                 }
             }
         }
-    }
-
-    // Convert the digits array back to a string
-    static string ConvertDigitsToString(int[] digits)
-    {
-        string result = "";
-        for (int i = 0; i < digits.Length; i++)
-        {
-            result += (char)(digits[i] + '0'); // Convert digit to character
-        }
-        return result;
-    }
-
-    // Sort the digits based on the order (asc or desc)
-    static string SortDigits(int number, string order)
-    {
-        // Extract digits from the number
-        int[] digits = ExtractDigits(number);
-
-        // Sort the digits
-        if (order == "asc")
-        {
-            SortDigitsManually(digits, true); // Ascending order
-        }
-        else if (order == "desc")
-        {
-            SortDigitsManually(digits, false); // Descending order
-        }
-        else
-        {
-            return "Invalid order";
-        }
-
-        // Convert sorted digits back to a string
-        return ConvertDigitsToString(digits);
+        return new string(digits);
     }
 }
