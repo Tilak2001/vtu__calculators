@@ -21,6 +21,32 @@ function totalChocolates() {
         wrappers = newChocolate; 
     } 
 
+
+
+function totalChocolates() { 
+    let money = 50; 
+    let chocolateCost = 2; 
+    let chocolatePerWrapper = 0.5; 
+    let totalChocolates = 0; 
+
+    let chocolateBought = Math.floor(money / chocolateCost); 
+    totalChocolates += chocolateBought; 
+    let remainingMoney = money % chocolateCost; 
+    let wrappers = chocolateBought; 
+
+    while (wrappers >= chocolateCost / chocolatePerWrapper) { 
+        let cashback = wrappers * chocolatePerWrapper; 
+        remainingMoney += cashback; 
+        let newChocolate = Math.floor(remainingMoney / chocolateCost); 
+
+        totalChocolates += newChocolate; 
+        remainingMoney %= chocolateCost; 
+        wrappers = newChocolate; 
+    } 
+
+    console.log("Total Chocolates: " + totalChocolates); 
+} 
+totalChocolates();
     console.log("Total Chocolates: " + totalChocolates); 
 } 
 totalChocolates();
