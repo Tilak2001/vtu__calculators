@@ -9,31 +9,6 @@ function totalChocolates() {
     let remainingMoney = money % chocolateCost; 
     let wrappers = chocolateBought; 
 
-    while (wrappers > 0) { 
-        let cashback = wrappers * chocolatePerWrapper; 
-        remainingMoney += cashback; 
-        let newChocolate = Math.floor(remainingMoney / chocolateCost); 
-    
-        if (newChocolate === 0) break;
-
-        totalChocolates += newChocolate; 
-        remainingMoney %= chocolateCost; 
-        wrappers = newChocolate; 
-    } 
-
-
-
-function totalChocolates() { 
-    let money = 50; 
-    let chocolateCost = 2; 
-    let chocolatePerWrapper = 0.5; 
-    let totalChocolates = 0; 
-
-    let chocolateBought = Math.floor(money / chocolateCost); 
-    totalChocolates += chocolateBought; 
-    let remainingMoney = money % chocolateCost; 
-    let wrappers = chocolateBought; 
-
     while (wrappers >= chocolateCost / chocolatePerWrapper) { 
         let cashback = wrappers * chocolatePerWrapper; 
         remainingMoney += cashback; 
@@ -50,3 +25,183 @@ totalChocolates();
     console.log("Total Chocolates: " + totalChocolates); 
 } 
 totalChocolates();
+
+
+
+
+using System;
+
+namespace LargestNum
+{
+    class LargeNo
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter the Number of Rows : ");
+            int row = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter the Number of Columns : ");
+            int col = int.Parse(Console.ReadLine());
+
+            double[,] arr = new double[row, col];
+            Console.WriteLine("Enter elements : ");
+            for (int i = 0; i < row; i++)
+            {
+                for (int j = 0; j < col; j++)
+                {
+                    Console.Write($"Elements a[{i},{j}] : ");
+                    arr[i, j] = double.Parse(Console.ReadLine());
+                }
+            }
+
+            // Method 1: Traditional Method (no generics)
+            double[] maximumValue = new double[row];
+            for (int i = 0; i < row; i++)
+            {
+                double max = arr[i, 0];
+                for (int j = 1; j < col; j++)
+                {
+                    if (arr[i, j] > max)
+                    {
+                        max = arr[i, j];
+                    }
+                }
+                maximumValue[i] = max;
+            }
+            Console.WriteLine("Maximum Values (Traditional Method): " + String.Join(" , ", maximumValue));
+
+            // Method 2: Generic Method
+            var maximumValueGeneric = FindMaxValuesWithGenerics(arr, row, col);
+            Console.WriteLine("Maximum Values (Generic Method): " + String.Join(" , ", maximumValueGeneric));
+        }
+
+        // Generic Method to Find Maximum Values in Each Row
+        static T[] FindMaxValuesWithGenerics<T>(T[,] arr, int row, int col) where T : IComparable<T>
+        {
+            T[] maximumValue = new T[row];
+            for (int i = 0; i < row; i++)
+            {
+                T max = arr[i, 0];
+                for (int j = 1; j < col; j++)
+                {
+                    if (arr[i, j].CompareTo(max) > 0)
+                    {
+                        max = arr[i, j];
+                    }
+                }
+                maximumValue[i] = max;
+            }
+            return maximumValue;
+        }
+    }
+}
+
+
+
+using System;
+using System.Linq;
+
+namespace SortAscDesc
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.Write("Enter a number : ");
+            string input = Console.ReadLine();
+
+            if (int.TryParse(input, out int number))
+            {
+                Console.Write("Enter Sorting order (asc/desc): ");
+                string order = Console.ReadLine().ToLower();
+
+                // Using traditional method
+                string result = sortDigits(number, order);
+                Console.WriteLine($"Sorted result (Traditional): {result}");
+
+                // Using generic method
+                string genericResult = sortDigitsWithGenerics(number, order);
+                Console.WriteLine($"Sorted result (Generics): {genericResult}");
+
+                // Using LINQ method
+                string linqResult = sortDigitsWithLinq(number, order);
+                Console.WriteLine($"Sorted result (LINQ): {linqResult}");
+            }
+            else
+            {
+                Console.WriteLine("Invalid input!!");
+            }
+        }
+
+        // Traditional sorting method
+        static string sortDigits(int number, string order)
+        {
+            string numberString = Math.Abs(number).ToString();
+
+            char[] digits = new char[numberString.Length];
+            for (int i = 0; i < numberString.Length; i++)
+            {
+                digits[i] = numberString[i];
+            }
+
+            for (int i = 0; i < digits.Length; i++)
+            {
+                for (int j = i + 1; j < digits.Length; j++)
+                {
+                    if (order == "asc" && digits[i] > digits[j])
+                    {
+                        char temp = digits[i];
+                        digits[i] = digits[j];
+                        digits[j] = temp;
+                    }
+                    else if (order == "desc" && digits[i] < digits[j])
+                    {
+                        char temp = digits[i];
+                        digits[i] = digits[j];
+                        digits[j] = temp;
+                    }
+                }
+            }
+            return new string(digits);
+        }
+
+        // Generic method to sort digits
+        static string sortDigitsWithGenerics<T>(T number, string order) where T : IComparable
+        {
+            string numberString = Math.Abs(Convert.ToInt32(number)).ToString();
+            char[] digits = numberString.ToCharArray();
+
+            if (order == "asc")
+            {
+                Array.Sort(digits);
+            }
+            else if (order == "desc")
+            {
+                Array.Sort(digits);
+                Array.Reverse(digits);
+            }
+            else
+            {
+                return "Invalid order";
+            }
+            return new string(digits);
+        }
+
+        // LINQ method to sort digits
+        static string sortDigitsWithLinq(int number, string order)
+        {
+            string numberString = Math.Abs(number).ToString();
+
+            var sortedDigits = numberString
+                .OrderBy(c => c)
+                .ToArray();
+
+            if (order == "desc")
+            {
+                Array.Reverse(sortedDigits);
+            }
+
+            return new string(sortedDigits);
+        }
+    }
+}
