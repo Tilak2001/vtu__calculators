@@ -614,6 +614,99 @@ namespace FormatNumber
 
 using System;
 
+namespace Interest
+{
+    class SimpleInterest
+    {
+        public static double Calculate(double principle, double term, double rate)
+        {
+            return (principle * term * rate) / 100;
+        }
+
+        public delegate double InterestCalculation(double principle, double term, double rate);
+
+        static void Main(string[] args)
+        {
+            InterestCalculation CalculateInterest = (p, t, r) =>
+            {
+                return (p * t * r) / 100;
+            };
+
+            Console.Write("Enter the Principle : ");
+            double principle = Convert.ToDouble(Console.ReadLine());
+
+            Console.Write("Enter the Term : ");
+            double term = Convert.ToDouble(Console.ReadLine());
+
+            Console.Write("Enter the Rate of Interest : ");
+            double rate = Convert.ToDouble(Console.ReadLine());
+
+            //double interest = Calculate(principle, term, rate);
+            //Console.WriteLine(interest);
+
+            double output = CalculateInterest(principle, term, rate);
+            Console.WriteLine(output);
+        }
+    }
+}
+
+
+using System;
+
+namespace MergeArray
+{
+    class Program
+    {
+        // Method to merge two nullable integer arrays
+        static int?[] Merge(int?[] a, int?[] b)
+        {
+            int?[] c = new int?[a.Length + b.Length]; // Using nullable array
+            for (int i = 0; i < a.Length; i++)
+            {
+                c[i] = a[i]; // Directly copy nullable values
+            }
+
+            for (int i = 0; i < b.Length; i++)
+            {
+                c[a.Length + i] = b[i]; // Copy nullable values from second array
+            }
+
+            return c;
+        }
+
+        static void Main(string[] args)
+        {
+            // Nullable integer arrays
+            int?[] arr = { 2, 9, null };
+            int?[] arr1 = { 1, 9, 7, 3, null };
+
+            // Merging the arrays
+            int?[] arr2 = Merge(arr, arr1);
+
+            // Displaying the merged array
+            Console.WriteLine("Merged Array:");
+            for (int i = 0; i < arr2.Length; i++)
+            {
+                // Checking for nullable values and handling them
+                if (arr2[i].HasValue)
+                {
+                    Console.Write(arr2[i] + " "); // Print the value if it's not null
+                }
+                else
+                {
+                    Console.Write("null "); // Print "null" if the value is null
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+using System;
+
 namespace SortArray
 {
     class Program
