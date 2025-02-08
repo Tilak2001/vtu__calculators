@@ -219,3 +219,81 @@ namespace EmployeeAPI.Controllers
         }
     }
 }
+
+
+using Microsoft.AspNetCore.Mvc;
+
+namespace WebApplication3.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class StudentApiController : ControllerBase
+    {
+        private static List<Students> Students = new List<Students>()
+        {
+            new Students()
+            {
+                StudentId = 1, StudentName = "Mukesh", Gender = "Male", Age = 19
+            },
+            new Students()
+            {
+                StudentId = 2, StudentName = "Luffy", Gender = "Male", Age = 19
+            },
+            new Students()
+            {
+                StudentId = 3, StudentName = "Zoro", Gender = "Male", Age = 21
+            },
+            new Students()
+            {
+                StudentId = 4, StudentName = "Nami", Gender = "Female", Age = 20
+            },
+            new Students()
+            {
+                StudentId = 5, StudentName = "Ace", Gender = "Male", Age = 22
+            }
+        };
+
+        [HttpGet]
+        public List<Students> GetStudents()
+        {
+            return Students;
+        }
+
+        [HttpGet("{id:int}")]
+        public Students GetStudentById(int id)
+        {
+            return Students.Where(n => n.StudentId == id).FirstOrDefault();
+        }
+
+        [HttpGet("{name:alpha}")]
+        public Students GetStudentByName(String name)
+        {
+            return Students.Where(n => n.StudentName == name).FirstOrDefault();
+        }
+
+
+        [HttpDelete("{id}")]
+        public bool DeleteStudentById(int id)
+        {
+            var student =  Students.Where(n => n.StudentId == id).FirstOrDefault();
+            Students.Remove(student);
+
+            return true;
+        }
+
+        [HttpPost]
+        public Students CreateStudents([FromBody] Students newStudents)
+        {
+            Students std = new Students
+            {
+                StudentId = newStudents.StudentId,
+                StudentName = newStudents.StudentName,
+                Gender = newStudents.Gender,
+                Age = newStudents.Age
+            };
+            Students.Add(std);
+
+            return std;
+        }
+    }
+}
