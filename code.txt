@@ -121,6 +121,102 @@ namespace EmployeeAPI.Controllers
 }
 
 
+using EmployeeAPI.Models;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+
+namespace EmployeeAPI.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class EmployeeController : ControllerBase
+    {
+        // In-memory list to store employees
+        private static List<Employee> employees = new List<Employee>();
+
+        // GET: api/Employee
+        [HttpGet]
+        public List<Employee> GetEmployees()
+        {
+            // Return the list of employees
+            return employees;
+        }
+
+        // POST: api/Employee
+        [HttpPost]
+        public IActionResult CreateEmployee([FromBody] Employee employee)
+        {
+            if (employee == null)
+            {
+                return BadRequest("Employee data is required.");
+            }
+
+            // Validate the date of birth
+            if (employee.DOB == default)
+            {
+                return BadRequest("Invalid Date of Birth.");
+            }
+
+            // Validate the joining date (DOJ)
+            if (employee.DOJ == default)
+            {
+                return BadRequest("Invalid Joining Date.");
+            }
+
+            // Validate Email
+            if (!IsValidEmail(employee.Email))
+            {
+                return BadRequest("Invalid email address.");
+            }
+
+            // Validate Phone Number
+            if (!IsValidPhoneNumber(employee.PhoneNumber))
+            {
+                return BadRequest("Invalid phone number.");
+            }
+
+            // Calculate Age and add it to the employee object
+            employee.Age = CalculateAge(employee.DOB);
+
+            // Add the employee to the list
+            employees.Add(employee);
+
+            // Return the employee object created
+            return Ok(employee);
+        }
+
+        // Method to calculate age based on DOB
+        private int CalculateAge(DateTime dob)
+        {
+            var today = DateTime.Today;
+            var age = today.Year - dob.Year;
+
+            // Check if the birthday has passed this year; if not, subtract one year from the age.
+            if (dob.Date > today.AddYears(-age))
+            {
+                age--;
+            }
+
+            return age;
+        }
+
+        // Helper Method to validate email using regex
+        private bool IsValidEmail(string email)
+        {
+            var emailRegex = new Regex(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$");
+            return emailRegex.IsMatch(email);
+        }
+
+        // Helper Method to validate phone number using regex
+        private bool IsValidPhoneNumber(string phoneNumber)
+        {
+            var phoneRegex = new Regex(@"^(\d{10}|\d{3}[-]\d{3}[-]\d{4}|\(\d{3}\)\d{3}[-]\d{4})$");
+            return phoneRegex.IsMatch(phoneNumber);
+        }
+    }
+}
 
 
 // Validation/PhoneNumberValidationAttribute.cs
